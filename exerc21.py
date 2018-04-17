@@ -2,13 +2,13 @@ import mincemeat
 import glob
 import csv
 
-text_files = glob.glob('\\temp\\arq_exec\\textos')
+text_files = glob.glob('C:\\Temp\\Arq_Exerc\\Textos\\*')
 
 def file_contents(file_name):
     f = open(file_name)
     try:
         return f.read()
-    finally
+    finally:
         f.close()
     
 source = dict((file_name, file_contents(file_name))for file_name in text_files)
@@ -32,6 +32,6 @@ s.reducefn = reducefn
 
 results = s.run_server(password="p4ssw0rd")
 
-w = csv.writer(open("\\temp\\arq_exerc\\result.csv", "w"))
+w = csv.writer(open("C:\\Temp\\Arq_Exerc\\result.csv", "w"))
 for k, v in results.items():
     w.writerow([k, v])
