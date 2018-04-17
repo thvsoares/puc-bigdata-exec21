@@ -24,3 +24,14 @@ def mapfn(k,v):
 def reducefn(k, v):
     print 'reduce ' + k
     return sum(v)
+
+s = mincemeat.Server()
+s.datasource = source
+s.mapfn = mapfn
+s.reducefn = reducefn
+
+results = s.run_server(password="p4ssw0rd")
+
+w = csv.writer(open("\\temp\\arq_exerc\\result.csv", "w"))
+for k, v in results.items():
+    w.writerow([k, v])
