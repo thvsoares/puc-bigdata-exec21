@@ -20,3 +20,7 @@ def mapfn(k,v):
         for word in line.split():
             if (word not in allStopWords):
                 yield word, 1
+
+def reducefn(k, v):
+    print 'reduce ' + k
+    return sum(v)
